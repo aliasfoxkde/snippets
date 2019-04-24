@@ -63,4 +63,5 @@ def sqrt(n):
     
 def factorial(n):
     return eval(str(range(1,n+1))[1:-1].replace(', ','*'))
-    
+
+
