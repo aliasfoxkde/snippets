@@ -1,14 +1,15 @@
-""" This is just a simple library of python "snippits" 
-    to either 1) make development simplier instead of 
-    having to rewrite common or useful code over again,
-    2) or just clever code I wanted to save while 
-    learning python. """
+""" This is just a simple library of python "snippits" to either 
+    1) make development simplier instead of having to rewrite 
+	common or useful code over again, 2) or just clever code 
+	I wanted to save while learning python. """
     
 def pause():
     return raw_input("Press Enter to continue...")
 
 def zodiac(month, day, year):
-    zodiac = [ "Capricorn", "Aquarius", "Pisces", "Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius"]
+    zodiac = [ "Capricorn", "Aquarius", "Pisces", "Aries", "Taurus", 
+			   "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio",
+			   "Sagittarius" ]
     cutoff = [22, 20, 19, 21, 20, 21, 21, 23, 23, 23, 23, 22]
     
     if day < cutoff[month]: 
@@ -17,12 +18,13 @@ def zodiac(month, day, year):
     return zodiac[month%12]
 
 def chinese_zodiac(year):
-    zodiac = ["Monkey", "Rooster", "Dog", "Pig", "Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Snake", "Horse", "Goat"]    
+    zodiac = ["Monkey", "Rooster", "Dog", "Pig", "Rat", "Ox", "Tiger", 
+	          "Rabbit", "Dragon", "Snake", "Horse", "Goat" ]
     return zodiac[year%12]
     
 def numerology(month, day, year, name=''):     
     nList = name.lower().split()
-	numbers = [sum(ord(j)-96 for j in nList[i])%9 for i in range(len(nList))]+[(month+day+year)%9]
+    numbers = [sum(ord(j)-96 for j in nList[i])%9 for i in range(len(nList))]+[(month+day+year)%9]
     return numbers
     
 def n_friday_the_13ths(y):    
@@ -42,8 +44,8 @@ def luhn(input=0):
 
 """ Useful list comprehension tricks """
 def flatten(tuple):
-	return sum(tuple, [])
-			
+    return sum(tuple, [])
+            
 """ Useful Math Functions """
 def fib(n):
     """ Calculate the nth digit of Fibonacci
@@ -61,3 +63,4 @@ def sqrt(n):
     
 def factorial(n):
     return eval(str(range(1,n+1))[1:-1].replace(', ','*'))
+    
