@@ -5,9 +5,9 @@
 
     Useful Tools, Libraries, Learning Reference, and Links:
      * https://docs.sympy.org/latest/modules/simplify/simplify.html
-	 * https://passwordsgenerator.net
-	 * http://norvig.com/sudoku.html
-	
+     * https://passwordsgenerator.net
+     * http://norvig.com/sudoku.html
+    
 """
     
 def pause():
@@ -87,7 +87,7 @@ def n_friday_the_13ths(y):
 
 def luhn(input=0):
     # Credit Card Validator or Mod 10, or Luhn algorithm
-	# refering to it's creator 'Hans Peter Luhn'
+    # refering to it's creator 'Hans Peter Luhn'
     return (sum(map(int, str(input)[1::2])) + \
             sum(sum(map(int, str(i*2))) for i in \
             map(int, str(input)[0::2]))) % 10 == 0
@@ -101,15 +101,15 @@ def nthDimList(n):
 
 def piCross_solver(grid):
     return
-	
+    
 def baccarat_simulator():
     return
-	
+    
 def suduko_solver(grid):
     return
-	
+    
 """ ---- File tools ---- """
 def stripFile(filename, seperator='\n'):
     "Parse a file into a list of strings, separated by seperator."
     return file(filename).read().strip().split(seperator)
-	
+    
