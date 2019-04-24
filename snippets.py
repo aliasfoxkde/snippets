@@ -1,15 +1,15 @@
 """ This is just a simple library of python "snippits" to either 
     1) make development simplier instead of having to rewrite 
-	common or useful code over again, 2) or just clever code 
-	I wanted to save while learning python. """
+    common or useful code over again, 2) or just clever code 
+    I wanted to save while learning python. """
     
 def pause():
     return raw_input("Press Enter to continue...")
 
 def zodiac(month, day, year):
     zodiac = [ "Capricorn", "Aquarius", "Pisces", "Aries", "Taurus", 
-			   "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio",
-			   "Sagittarius" ]
+               "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio",
+               "Sagittarius" ]
     cutoff = [22, 20, 19, 21, 20, 21, 21, 23, 23, 23, 23, 22]
     
     if day < cutoff[month]: 
@@ -19,7 +19,7 @@ def zodiac(month, day, year):
 
 def chinese_zodiac(year):
     zodiac = ["Monkey", "Rooster", "Dog", "Pig", "Rat", "Ox", "Tiger", 
-	          "Rabbit", "Dragon", "Snake", "Horse", "Goat" ]
+              "Rabbit", "Dragon", "Snake", "Horse", "Goat" ]
     return zodiac[year%12]
     
 def numerology(month, day, year, name=''):     
