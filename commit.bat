@@ -15,6 +15,8 @@ if "%~1"=="" (
 git add --all && git commit -m %msg% && git push
 
 if NOT "%errorlevel%"=="0" (
+        :: "Fixes" the Repo if/when out of date
+        :: but still needs testing
 	git pull
 )
 
