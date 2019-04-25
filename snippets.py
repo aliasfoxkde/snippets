@@ -13,6 +13,8 @@ __status__ = "Work in Progress"
     here as well.
 
     Useful Tools, Libraries, Learning Reference, and Links:
+     * https://www.geeksforgeeks.org/10-essential-python-tips-tricks-programmers/
+	 * https://pythontips.com/2015/04/19/nifty-python-tricks/
      * https://docs.sympy.org/latest/modules/simplify/simplify.html
      * https://www.w3schools.com/python/python_datetime.asp
      * https://docs.python.org/3/tutorial/modules.html
@@ -180,3 +182,7 @@ def f2c(ferinheight=0):
 
 def c2f(celsius=0):
     return (celsius - 32)* 5/9 # ferinheight
+
+def is_anagram(str1, str2):
+    return all(i in str2 for i in map(str, str1))
+    
