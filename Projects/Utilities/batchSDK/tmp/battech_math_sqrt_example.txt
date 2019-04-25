@@ -1,0 +1,32 @@
+@ECHO OFF
+:: Square root (integer results only)
+:: Usage:  Sqrt num
+:: E.g. SQRT 64 = 8
+IF     "%~1"=="" EXIT /B 1
+IF NOT "%~2"=="" EXIT /B 1
+
+SETLOCAL ENABLEDELAYEDEXPANSION
+SET /A Num = %~1
+IF %Num% NEQ %~1 (ENDLOCAL & EXIT /B 1)
+IF %Num% LSS   0 (ENDLOCAL & EXIT /B 1)
+IF %Num% LSS   2 (ECHO %Num%& ENDLOCAL & EXIT /B 0)
+SET Error=0
+SET Found=0
+SET /A "UBound = ( %Num% + 1 ) / 2"
+FOR /L %%A IN (0,1,%UBound%) DO (
+	IF !Error! EQU 0 (
+		IF !Found! EQU 0 (
+			FOR /F %%B IN ('SET /A %%A * %%A') DO (
+				IF %~1 LSS %%B (
+					SET Error=1
+				) ELSE (
+					IF %~1 EQU %%B (
+						ECHO.%%A
+						SET Found=1
+					)
+				)
+			)
+		)
+	)
+)
+ENDLOCAL & EXIT /B %Error%

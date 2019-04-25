@@ -1,0 +1,22 @@
+References
+https://www.robvanderwoude.com/type.php
+https://www.robvanderwoude.com/ansi.php
+https://www.dostips.com/forum/viewtopic.php?t=3150
+https://www.robvanderwoude.com/batexamples.php
+https://www.dostips.com/forum/viewtopic.php?t=5819
+https://www.tutorialspoint.com/batch_script/batch_script_quick_guide.htm
+https://stackoverflow.com/questions/28043589/how-can-i-compress-zip-and-uncompress-unzip-files-and-folders-with-bat
+https://www.dostips.com/DtTutoFunctions.php
+https://ritchielawrence.github.io/batchfunctionlibrary/
+
+Other
+https://superuser.com/questions/25538/how-to-download-files-from-command-line-in-windows-like-wget-or-curl
+http://a32.me/2010/08/7zip-differential-backup-linux-windows/
+https://stackoverflow.com/questions/20485419/batch-file-script-to-zip-files
+https://www.inference.org.uk/mackay/python/compress/
+
+More:
+telnet towel.blinkenlights.nl
+
+Notes:
+Create a ASCII Art Movie to include with the Batch SDK?

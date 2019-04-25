@@ -5,19 +5,45 @@
 
     Useful Tools, Libraries, Learning Reference, and Links:
      * https://docs.sympy.org/latest/modules/simplify/simplify.html
+     * https://www.w3schools.com/python/python_datetime.asp
+     * https://docs.python.org/3/tutorial/modules.html
+     * https://timothybramlett.com/How_to_create_a_Python_Package_with___init__py.html
      * https://passwordsgenerator.net
      * http://norvig.com/sudoku.html
     
+    Useful Notes:
+     * "from <module> import <function> as <abbreviation>
+     * "from <module> import <function1>, <function2>, ...
+     
 """
     
 def pause():
     return raw_input("Press Enter to continue...")
 
 """ --- Useful list comprehension tricks --- """
+def advMap(func, *seqs):
+    return [func(*args) for args in zip(*seqs)]
+    
 def flatten(tuple):
     return sum(tuple, [])
-            
+
+def nthDimList(n, dims):
+    lst = [0] * n
+    if dims >= 2:
+        for i in range(dims-1):
+            lst = [lst for j in xrange(n)]
+    return lst
+    
+def remDuplicates(array)
+    return sorted(set(array), key=l[::-1].index)[::-1]
+
+def unzip(tuple):
+    return zip(*tuple)
+    
 """ ----- Useful Math Functions ----- """
+def cypher(cyper, key):
+    return ''.join(chr(i-int(b)+96)for i,b in zip(cyper,str(key)*29))
+
 def factorial(n):
     return eval(str(range(1,n+1))[1:-1].replace(', ','*'))
     
@@ -29,12 +55,21 @@ def fib(n):
         a, b = b, a + b
     return a
 
+def hamming(n):
+    """ A *Hamming number* is a positive integer of the form 2i3j5k,
+        See: https://en.wikipedia.org/wiki/Regular_number """
+    h = sorted(2**i*3**j*5**k for i in range(33) for j in range(21) for k in range(15))
+    return h[n-1]
+
+def longest_consec(string_array, n):
+    return max([''.join(i) for i in zip(*[string_array[i:] for i in range(n)])]+[''], key=len)
+    
 def pi(position, precision):
     return
     
 def sqrt(n):
     return n**.5
-
+    
 """ ---- Econding Conversions ---- """
 def ascii2bin(string):
     return
@@ -70,6 +105,13 @@ def chinese_zodiac(year):
     zodiac = ["Monkey", "Rooster", "Dog", "Pig", "Rat", "Ox", "Tiger", 
               "Rabbit", "Dragon", "Snake", "Horse", "Goat" ]
     return zodiac[year%12]
+
+def increment_string(string):
+    # See: https://www.codewars.com/kata/string-incrementer
+    for i in range(5,0,-1):
+        if len(string) > i-1 and string[-i].isdigit():
+            return string[:-i] + str(int(string[-i:])+1).zfill(i) 
+    return string+'1'
     
 def numerology(month, day, year, name=''):     
     nList = name.lower().split()
@@ -91,13 +133,6 @@ def luhn(input=0):
     return (sum(map(int, str(input)[1::2])) + \
             sum(sum(map(int, str(i*2))) for i in \
             map(int, str(input)[0::2]))) % 10 == 0
-            
-def nthDimList(n):
-    lst = [0] * 3
-    if n >= 2:
-        for i in range(n-1):
-            lst = [lst for j in xrange(3)]
-    return lst
 
 def piCross_solver(grid):
     return
@@ -107,9 +142,26 @@ def baccarat_simulator():
     
 def suduko_solver(grid):
     return
+
+def piedPiper(town):
+    """ How many rats are there?
+    See: https://www.codewars.com/kata/598106cb34e205e074000031 
+    Example: ~O~O~O~OP~O~OO~ has 2 deaf rats """
+    return town.replace(' ', '')[::2].count('O')
     
 """ ---- File tools ---- """
 def stripFile(filename, seperator='\n'):
     "Parse a file into a list of strings, separated by seperator."
     return file(filename).read().strip().split(seperator)
     
+""" ------ Sorting Algorithms --------- """
+def bubblesort(array):
+    for i in range(len(array)-1):
+        for j in range(len(array)-1-i):
+            if array[j] > array[j+1]:
+                array[j], array[j+1] = array[j+1], array[j]
+    return(array)
+    
+def is_turing_equation(s):
+    # See https://www.codewars.com/kata/simple-fun-number-384-is-turings-equation
+    return int(s[::-1].split('=')[0]) == sum(map(int, s[::-1].split('=')[1].split('+')))

@@ -1,0 +1,20 @@
+@ECHO OFF
+:: Exponentiation (positive integers only)
+:: Usage: Exp num pow
+:: E.g. EXP 2 10 = 1024
+IF     "%~2"=="" EXIT /B 1
+IF NOT "%~3"=="" EXIT /B 1
+
+SETLOCAL ENABLEDELAYEDEXPANSION
+SET /A Num = %~1
+SET /A Pow = %~2
+IF NOT %~1 EQU %Num% (ENDLOCAL & EXIT /B 1)
+IF NOT %~2 EQU %Pow% (ENDLOCAL & EXIT /B 1)
+IF %Num% LSS 0 (ENDLOCAL & EXIT /B 1)
+IF %Pow% LSS 0 (ENDLOCAL & EXIT /B 1)
+IF %Pow% EQU 0 (ECHO 1& ENDLOCAL & EXIT /B 0)
+IF %Num% EQU 0 (ECHO 0& ENDLOCAL & EXIT /B 0)
+SET Result=1
+FOR /L %%A IN (1,1,%Pow%) DO SET /A Result *= %Num%
+ECHO %Result%
+ENDLOCAL

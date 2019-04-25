@@ -27,6 +27,10 @@
 ::   directory is assumed to be in the current folder and destination 
 ::   is the sources name with an extension.
 
+:: Take Input Switches (TBD)
+
+:: Build Example or Demo Data (TBD)
+
 :: Script starts
 echo Building archive, please wait...
 

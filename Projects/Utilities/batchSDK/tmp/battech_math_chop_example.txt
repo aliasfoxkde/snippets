@@ -1,0 +1,27 @@
+@ECHO OFF
+:: Display the disk space in MB used by the subdirectories
+:: of the directory represented by %1, plus a grand total
+PUSHD "%~1"
+SETLOCAL ENABLEDELAYEDEXPANSION
+SET Total=0
+SET Count=0
+FOR /D %%A IN (*) DO (
+	SET DirSize=0
+	SET /A Count += 1
+	FOR /F "tokens=1,3" %%B IN ('DIR /A-D /-C /S "%%~A"') DO (
+		IF %%B NEQ 0 SET DirSize=%%C
+	)
+	IF !DirSize! GTR 0 SET DirSize=!DirSize:~0,-6!
+	IF "!DirSize!"=="" SET DirSize=0
+	SET /A Total += !DirSize!
+	SET DirSize=            !DirSize!
+	SET DirSize=!DirSize:~-12!
+	ECHO !DirSize! MB    %%~fA
+)
+ECHO.
+SET /A Total = %Total% + %Count% / 2
+SET Total=            %Total%
+SET Total=%Total:~-12%
+ECHO %Total% MB    Total
+ENDLOCAL
+POPD

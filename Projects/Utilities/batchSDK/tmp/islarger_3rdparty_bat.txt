@@ -1,0 +1,61 @@
+@ECHO OFF
+SETLOCAL ENABLEEXTENSIONS
+SETLOCAL ENABLEDELAYEDEXPANSION
+SETLOCAL
+SET _FIRST=%1
+SET _SECOND=%2
+CALL :ISLARGER _FIRST _SECOND _ANSWER
+ECHO !_ANSWER!
+GOTO :END
+
+:ISLARGER
+   ::DETERMINE IF FIRST VAR IS LARGER THAN SECOND
+   ::NUMBERS OF UP TO ~4000 DIGITS CAN BE COMPARED, NO MORE THAN ~8100 DIGITS COMBINED
+   ::SYNTAX: CALL ISLARGER _VAR1 _VAR2 _VAR3
+   ::hieyeque1@gmail.com - drop me a note telling me
+   ::if this has helped you.  Sometimes I don't know if anyone uses my stuff
+   ::Its free for the world to use.
+   ::I retain the rights to it though, you may not copyright this
+   ::to prevent others from using it, you may however copyright works
+   ::as a whole that use this code.
+   ::Just don't try to stop others from using this through some legal means.
+   ::CopyRight Brian Williams 5/18/2009
+   :: _VAR1 = VARIABLE AGAINST WHICH WE SHALL COMPARE
+   :: _VAR2 = VARIABLE TO BE COMPARED
+   :: _VAR3 = VARIABLE WITH TRUE/FALSE RETURNED
+   SET _NUM1=!%1!
+   SET _NUM2=!%2!
+   SET _RESULT=%3
+   FOR /L %%A IN (1,1,2) DO (
+      FOR /L %%B IN (0,1,9) DO (
+         SET _NUM%%A=!_NUM%%A:%%B=%%B !
+         )
+      )
+   FOR %%A IN (!_NUM1!) DO SET /A _NUM1CNT+=1 & SET _!_NUM1CNT!_NUM1=%%A
+   FOR %%A IN (!_NUM2!) DO SET /A _NUM2CNT+=1 & SET _!_NUM2CNT!_NUM2=%%A
+   IF !_NUM1CNT! NEQ !_NUM2CNT! (
+      IF !_NUM1CNT! GTR !_NUM2CNT! (
+         SET !_RESULT!=TRUE
+         GOTO :EOF
+         ) ELSE (
+         SET !_RESULT!=FALSE
+         GOTO :EOF
+         )
+      )
+   FOR /L %%A IN (1,1,!_NUM1CNT!) DO (
+      IF !_%%A_NUM1! NEQ !_%%A_NUM2! (
+         IF !_%%A_NUM1! GTR !_%%A_NUM2! (
+            SET !_RESULT!=TRUE
+            GOTO :EOF
+            ) ELSE (
+            SET !_RESULT!=FALSE
+            GOTO :EOF
+            )
+         )
+      )
+   SET !_RESULT!=EQUAL
+   GOTO :EOF
+
+:END
+
+
