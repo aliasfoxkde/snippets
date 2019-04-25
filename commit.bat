@@ -13,6 +13,8 @@ if "%~1"=="" (
 )
 
 git add --all && git commit -m %msg% && git push
+echo %errorlevel%
+pause
 
 :: Reset Message for Commandline
 set "msg="
