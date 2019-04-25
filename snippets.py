@@ -8,7 +8,9 @@ __status__ = "Work in Progress"
 """ This is just a simple library of python "snippits" to either 
     1) make development simplier instead of having to rewrite 
     common or useful code over again, 2) or just clever code 
-    I wanted to save while learning python.
+    I wanted to save while learning python. Also, it might be
+    out of scope but I decided to organize my programming progress
+    here as well.
 
     Useful Tools, Libraries, Learning Reference, and Links:
      * https://docs.sympy.org/latest/modules/simplify/simplify.html
@@ -35,10 +37,7 @@ def flatten(tuple):
 
 def nthDimList(n, dims):
     lst = [0] * n
-    if dims >= 2:
-        for i in range(dims-1):
-            lst = [lst for j in xrange(n)]
-    return lst
+    return [[lst for j in range(n)] if dims > 1 else lst for i in range(dims-1)]
     
 def remDuplicates(array):
     return sorted(set(array), key=l[::-1].index)[::-1]
@@ -133,12 +132,14 @@ def n_friday_the_13ths(y):
             count += 1
     return count
 
-def luhn(input=0):
-    # Credit Card Validator or Mod 10, or Luhn algorithm
-    # refering to it's creator 'Hans Peter Luhn'
-    return (sum(map(int, str(input)[1::2])) + \
+def luhn(card):
+    """ Credit Card Validator with Mod 10, or Luhn algorithm
+    refering to it's creator 'Hans Peter Luhn' """
+    # return sum(map(int, str(card)[1::2]+str(card)[0::2]*2))%10==0
+    card=str(card).replace(' ','')
+    return (sum(map(int, str(card)[1::2])) + \
             sum(sum(map(int, str(i*2))) for i in \
-            map(int, str(input)[0::2]))) % 10 == 0
+            map(int, str(card)[0::2]))) % 10 == 0
 
 def piedPiper(town):
     """ How many rats are there?
@@ -158,7 +159,7 @@ def suduko_solver(grid):
     
 """ ---- File tools ---- """
 def stripFile(filename, seperator='\n'):
-    "Parse a file into a list of strings, separated by seperator."
+    # "Parse a file into a list of strings, separated by seperator."
     return file(filename).read().strip().split(seperator)
     
 """ ------ Sorting Algorithms --------- """
@@ -172,3 +173,10 @@ def bubblesort(array):
 def is_turing_equation(s):
     # See https://www.codewars.com/kata/simple-fun-number-384-is-turings-equation
     return int(s[::-1].split('=')[0]) == sum(map(int, s[::-1].split('=')[1].split('+')))
+
+""" --------- Other --------- """
+def f2c(ferinheight=0):
+    return ferinheight * 9/5 + 32 # celsius
+
+def c2f(celsius=0):
+    return (celsius - 32)* 5/9 # ferinheight

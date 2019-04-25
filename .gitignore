@@ -1,0 +1,25 @@
+# Git Repo Specific files to exclude
+*.log
+
+# Python bytecode
+__pycache__
+__pycache__/
+__pycache__/*
+*.pyc
+*.pyo
+
+# PyCharm Specific
+.idea
+.idea/
+.idea/*
+
+# Windows Specific Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Other possible files
+# *.yml
+# *.exe
+# *.zip
+# *.7z
