@@ -14,7 +14,7 @@ if "%~1"=="" (
 
 git add --all && git commit -m %msg% && git push
 
-if NOT "%errorlevel%==0" (
+if NOT "%errorlevel%"=="0" (
 	git pull
 )
 
