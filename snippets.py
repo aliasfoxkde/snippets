@@ -1,3 +1,10 @@
+#! /usr/bin/env python
+
+__author__ = "Aliasfox KDE"
+__license__ = "MIT"
+__email__ = "aliasfox@cyopsys.com"
+__status__ = "Work in Progress"
+
 """ This is just a simple library of python "snippits" to either 
     1) make development simplier instead of having to rewrite 
     common or useful code over again, 2) or just clever code 
@@ -13,8 +20,7 @@
     
     Useful Notes:
      * "from <module> import <function> as <abbreviation>
-     * "from <module> import <function1>, <function2>, ...
-     
+     * "from <module> import <function1>, <function2>, ...     
 """
     
 def pause():
@@ -34,7 +40,7 @@ def nthDimList(n, dims):
             lst = [lst for j in xrange(n)]
     return lst
     
-def remDuplicates(array)
+def remDuplicates(array):
     return sorted(set(array), key=l[::-1].index)[::-1]
 
 def unzip(tuple):
@@ -134,6 +140,13 @@ def luhn(input=0):
             sum(sum(map(int, str(i*2))) for i in \
             map(int, str(input)[0::2]))) % 10 == 0
 
+def piedPiper(town):
+    """ How many rats are there?
+    See: https://www.codewars.com/kata/598106cb34e205e074000031 
+    Example: ~O~O~O~OP~O~OO~ has 2 deaf rats """
+    return town.replace(' ', '')[::2].count('O')
+    
+""" ------ Puzzle and Game Related --------- """        
 def piCross_solver(grid):
     return
     
@@ -142,12 +155,6 @@ def baccarat_simulator():
     
 def suduko_solver(grid):
     return
-
-def piedPiper(town):
-    """ How many rats are there?
-    See: https://www.codewars.com/kata/598106cb34e205e074000031 
-    Example: ~O~O~O~OP~O~OO~ has 2 deaf rats """
-    return town.replace(' ', '')[::2].count('O')
     
 """ ---- File tools ---- """
 def stripFile(filename, seperator='\n'):
