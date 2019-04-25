@@ -14,11 +14,16 @@ __status__ = "Work in Progress"
 
     Useful Tools, Libraries, Learning Reference, and Links:
      * https://www.geeksforgeeks.org/10-essential-python-tips-tricks-programmers/
-	 * https://pythontips.com/2015/04/19/nifty-python-tricks/
+     * https://pythontips.com/2015/04/19/nifty-python-tricks/
+     * https://bobbelderbos.com/2016/06/python-tips/
      * https://docs.sympy.org/latest/modules/simplify/simplify.html
      * https://www.w3schools.com/python/python_datetime.asp
      * https://docs.python.org/3/tutorial/modules.html
      * https://timothybramlett.com/How_to_create_a_Python_Package_with___init__py.html
+     * https://stackoverflow.com/questions/582336/how-can-you-profile-a-python-script
+     * https://www.blog.pythonlibrary.org/2014/03/20/python-102-how-to-profile-your-code/
+     * https://docs.python.org/2/library/profile.html
+     * https://pymotw.com/2/profile/
      * https://passwordsgenerator.net
      * http://norvig.com/sudoku.html
     
@@ -185,4 +190,14 @@ def c2f(celsius=0):
 
 def is_anagram(str1, str2):
     return all(i in str2 for i in map(str, str1))
-    
+
+def inspect(object):
+    return dir(object)
+
+def debug():
+    import pdb
+    return pdb.set_trace()
+
+def unitTests(level):
+    """ Automated Unit tests and script profiling """
+    return
