@@ -8,6 +8,7 @@ def pause():
  
 file = open("rndDec_8char.txt","w+") 
 
+# size_of_array and output_length
 for a in range(100000000):
 	file.write(''.join(random.choice(s) for i in range(8))+"\n")
 
