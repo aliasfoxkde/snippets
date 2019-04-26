@@ -34,6 +34,7 @@ __all__ = metadata.keys()
      * https://stackoverflow.com/questions/582336/how-can-you-profile-a-python-script
      * https://www.blog.pythonlibrary.org/2014/03/20/python-102-how-to-profile-your-code/
      * https://docs.python.org/2/library/profile.html
+	 * https://pypi.org/project/about/
      * https://pymotw.com/2/profile/
      * https://passwordsgenerator.net
      * http://norvig.com/sudoku.html
