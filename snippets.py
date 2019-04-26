@@ -58,7 +58,7 @@ def cypher(cyper, key):
 
 def factorial(n):
     return eval(str(range(1,n+1))[1:-1].replace(', ','*'))
-    
+
 def fib(n):
     """ Calculate the nth digit of Fibonacci
         0 1 1 2 3 5 8 13 21 34 ... """
@@ -67,6 +67,9 @@ def fib(n):
         a, b = b, a + b
     return a
 
+def getIntegral(c, e):
+    return "%sx^%s" % (c/(e+1) if c%(e+1)!=0 else c//(e+1), e+1)
+    
 def hamming(n):
     """ A *Hamming number* is a positive integer of the form 2i3j5k,
         See: https://en.wikipedia.org/wiki/Regular_number """
