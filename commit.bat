@@ -18,6 +18,7 @@ if NOT "%errorlevel%"=="0" (
         :: "Fixes" the Repo if/when out of date
         :: but still needs testing
 	git pull
+        git add --all && git commit -m %msg% && git push
 )
 
 :: Reset Message for Commandline
