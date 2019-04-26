@@ -1,9 +1,20 @@
 #! /usr/bin/env python
 
-__author__ = "Aliasfox KDE"
-__license__ = "MIT"
-__email__ = "aliasfox@cyopsys.com"
-__status__ = "Work in Progress"
+# coding: utf-8
+
+metadata = dict(
+	__author__ = "Aliasfox KDE",
+	__version__  = "0.0.1",
+	__license__ = "MIT License",
+	__email__ = "aliasfox@cyopsys.com",
+	__status__ = "Work in Progress",
+	__url__ = "https://github.com/aliasfoxkde/snippets",
+	__summary__ = "Simple but helpful library of snippets for python.",
+	__keywords__ = "python, aliasfox, snippets"
+)
+globals().update(metadata)
+
+__all__ = metadata.keys()
 
 """ This is just a simple library of python "snippits" to either 
     1) make development simplier instead of having to rewrite 
@@ -92,12 +103,22 @@ def ascii2bin(string):
 def ascii2hex(string):
     return
     
-def bin2Ascii(n):
-    return
-    
+def bin2Ascii(bin):
+    from binascii import unhexlify
+    return str(unhexlify('%x' % int(str(bin), 2)))[2:-1]
+
 def bin2hex(n):
-    return
-    
+    return hex(int(str(bin), 2))[2:]
+
+def bin2dec(bin):
+    return int(str(bin), 2)
+	
+def altBin2Dec(bin):
+    ''' # Alternative binary calculator: I saw the formula one time for '111' as
+    (1 × 2^2) + (1 × 2^1) + (1 × 2^0) = 7 and thought it was awesome, so I made a python
+    function. Maybe not the most efficient but it adds a level of intuitiveness. '''
+    return sum(int(str(bin)[i])*2**i for i in range(len(str(bin))))
+
 def int2bin(n):
     return ''.join(str((n & (1 << i)) and 1) for i in range(len(str(n))*8,-1,-1)).lstrip('0')
 
