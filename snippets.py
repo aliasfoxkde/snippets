@@ -115,7 +115,7 @@ def bin2dec(bin):
 	
 def altBin2Dec(bin):
     ''' # Alternative binary calculator: I saw the formula one time for '111' as
-    (1 × 2^2) + (1 × 2^1) + (1 × 2^0) = 7 and thought it was awesome, so I made a python
+    (1 x 2^2) + (1 x 2^1) + (1 x 2^0) = 7 and thought it was awesome, so I made a python
     function. Maybe not the most efficient but it adds a level of intuitiveness. '''
     return sum(int(str(bin)[i])*2**i for i in range(len(str(bin))))
 
