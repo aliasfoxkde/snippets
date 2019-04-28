@@ -3,14 +3,14 @@
 # coding: utf-8
 
 metadata = dict(
-	__author__ = "Aliasfox KDE",
-	__version__  = "0.0.1",
-	__license__ = "MIT License",
-	__email__ = "aliasfox@cyopsys.com",
-	__status__ = "Work in Progress",
-	__url__ = "https://github.com/aliasfoxkde/snippets",
-	__summary__ = "Simple but helpful library of snippets for python.",
-	__keywords__ = "python, aliasfox, snippets"
+    __author__ = "Aliasfox KDE",
+    __version__  = "0.0.1",
+    __license__ = "MIT License",
+    __email__ = "aliasfox@cyopsys.com",
+    __status__ = "Work in Progress",
+    __url__ = "https://github.com/aliasfoxkde/snippets",
+    __summary__ = "Simple but helpful library of snippets for python.",
+    __keywords__ = "python, aliasfox, snippets"
 )
 globals().update(metadata)
 
@@ -34,7 +34,7 @@ __all__ = metadata.keys()
      * https://stackoverflow.com/questions/582336/how-can-you-profile-a-python-script
      * https://www.blog.pythonlibrary.org/2014/03/20/python-102-how-to-profile-your-code/
      * https://docs.python.org/2/library/profile.html
-	 * https://pypi.org/project/about/
+     * https://pypi.org/project/about/
      * https://pymotw.com/2/profile/
      * https://passwordsgenerator.net
      * http://norvig.com/sudoku.html
@@ -113,7 +113,7 @@ def bin2hex(n):
 
 def bin2dec(bin):
     return int(str(bin), 2)
-	
+    
 def altBin2Dec(bin):
     ''' # Alternative binary calculator: I saw the formula one time for '111' as
     (1 x 2^2) + (1 x 2^1) + (1 x 2^0) = 7 and thought it was awesome, so I made a python
