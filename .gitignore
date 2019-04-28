@@ -12,6 +12,12 @@ __pycache__/*
 .idea
 .idea/
 .idea/*
+temp
+temp/
+temp/*
+Learning/GoogleFooBar/Temp
+Learning/GoogleFooBar/Temp/
+Learning/GoogleFooBar/Temp/*
 
 # Windows Specific Files
 .DS_Store
