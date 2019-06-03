@@ -7,7 +7,10 @@
 :: is provided)
 
 if "%~1"=="" (
-	set /p msg=Please provide a commit message... 
+	:: set /p msg=Please provide a commit message... 
+	git rev-list --all --count > %temp%\cnt.txt
+	set /p cnt=<%temp%\cnt.txt
+	set "msg=Auto Commit #%count%" 
 ) else (
 	set "msg=%1"
 )
