@@ -4,7 +4,8 @@ This is experimental code that exploits a potential side effect of compression
 libraries. This is not intended to be a "real world" compression algorithm. 
 Zippy is an amazing compression technique but it can only reduce "pattern" 
 data and not random datasets. However, unlike an obvious exploit of duplicating
-data, all the values are unique (though they may be similiar or paternistic).
+data, all the values are unique (though they may be similiar or paternistic)
+and the 'Zippy' exploit handles this particular data better than ZIP or 7Zip.
 
 Benchmarks
 
