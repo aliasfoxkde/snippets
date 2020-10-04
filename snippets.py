@@ -68,6 +68,14 @@ def unzip(tuple):
 def cypher(cyper, key):
     return ''.join(chr(i-int(b)+96)for i,b in zip(cyper,str(key)*29))
 
+def decypher(cyper, key):
+    return
+
+def dirty_mod(n,mod):
+    ''' "A Simple, Down and Dirty" Modulous Function that used the remainder
+    decimal remainder and multiplies it by the mod value '''
+    return (n/float(mod)-n//mod+.001)//(1/mod)
+
 def factorial(n):
     return eval(str(range(1,n+1))[1:-1].replace(', ','*'))
 
@@ -83,8 +91,8 @@ def getIntegral(c, e):
     return "%sx^%s" % (c/(e+1) if c%(e+1)!=0 else c//(e+1), e+1)
     
 def hamming(n):
-    """ A *Hamming number* is a positive integer of the form 2i3j5k,
-        See: https://en.wikipedia.org/wiki/Regular_number """
+    ''' A *Hamming number* is a positive integer of the form 2i3j5k,
+        See: https://en.wikipedia.org/wiki/Regular_number '''
     h = sorted(2**i*3**j*5**k for i in range(33) for j in range(21) for k in range(15))
     return h[n-1]
 
@@ -115,7 +123,7 @@ def bin2dec(bin):
     return int(str(bin), 2)
     
 def altBin2Dec(bin):
-    ''' # Alternative binary calculator: I saw the formula one time for '111' as
+    ''' Alternative binary calculator: I saw the formula one time for '111' as
     (1 x 2^2) + (1 x 2^1) + (1 x 2^0) = 7 and thought it was awesome, so I made a python
     function. Maybe not the most efficient but it adds a level of intuitiveness. '''
     return sum(int(str(bin)[i])*2**i for i in range(len(str(bin))))
@@ -131,12 +139,8 @@ def zodiac(month, day, year):
     zodiac = [ "Capricorn", "Aquarius", "Pisces", "Aries", "Taurus", 
                "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio",
                "Sagittarius" ]
-    cutoff = [22, 20, 19, 21, 20, 21, 21, 23, 23, 23, 23, 22]
-    
-    if day < cutoff[month]: 
-        month -= 1
-    
-    return zodiac[month%12]
+    cutoff = [22, 20, 19, 21, 20, 21, 21, 23, 23, 23, 23, 22]    
+    return zodiac[month%12] if day < cutoff[month] else zodiac[month%11]
 
 def chinese_zodiac(year):
     zodiac = ["Monkey", "Rooster", "Dog", "Pig", "Rat", "Ox", "Tiger", 
@@ -165,18 +169,17 @@ def n_friday_the_13ths(y):
     return count
 
 def luhn(card):
-    """ Credit Card Validator with Mod 10, or Luhn algorithm
-    refering to it's creator 'Hans Peter Luhn' """
-    # return sum(map(int, str(card)[1::2]+str(card)[0::2]*2))%10==0
+    ''' Credit Card Validator with Mod 10, or Luhn algorithm
+    refering to it's creator 'Hans Peter Luhn' '''
     card=str(card).replace(' ','')
     return (sum(map(int, str(card)[1::2])) + \
             sum(sum(map(int, str(i*2))) for i in \
             map(int, str(card)[0::2]))) % 10 == 0
 
 def piedPiper(town):
-    """ How many rats are there?
+    ''' How many rats are there?
     See: https://www.codewars.com/kata/598106cb34e205e074000031 
-    Example: ~O~O~O~OP~O~OO~ has 2 deaf rats """
+    Example: ~O~O~O~OP~O~OO~ has 2 deaf rats '''
     return town.replace(' ', '')[::2].count('O')
     
 """ ------ Puzzle and Game Related --------- """        
@@ -224,5 +227,5 @@ def debug():
     return pdb.set_trace()
 
 def unitTests(level):
-    """ Automated Unit tests and script profiling """
+    ''' Automated Unit tests and script profiling '''
     return
