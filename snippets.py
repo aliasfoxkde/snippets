@@ -219,6 +219,9 @@ def c2f(celsius=0):
 def is_anagram(str1, str2):
     return all(i in str2 for i in map(str, str1))
 
+def is_palindrome(string):
+    return string == string[::-1]
+
 def inspect(object):
     return dir(object)
 
