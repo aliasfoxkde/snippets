@@ -1,5 +1,5 @@
 @echo off
-:: Goal of this script is to enable automated 
+:: The Goal of this script is to enable automated 
 :: incremental commits that can be scheduled.
 :: Currently, the script can simi-auto commit
 :: by being passed a commit message either
