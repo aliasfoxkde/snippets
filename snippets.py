@@ -4,7 +4,7 @@
 
 metadata = dict(
     __author__ = "Aliasfox KDE",
-    __version__  = "0.0.1",
+    __version__  = "0.0.2",
     __license__ = "MIT License",
     __email__ = "aliasfox@cyopsys.com",
     __status__ = "Work in Progress",
@@ -192,7 +192,7 @@ def baccarat_simulator():
 def suduko_solver(grid):
     return
     
-""" ---- File tools ---- """
+""" -------- File tools -------- """
 def stripFile(filename, seperator='\n'):
     # "Parse a file into a list of strings, separated by seperator."
     return file(filename).read().strip().split(seperator)
@@ -209,19 +209,22 @@ def is_turing_equation(s):
     # See https://www.codewars.com/kata/simple-fun-number-384-is-turings-equation
     return int(s[::-1].split('=')[0]) == sum(map(int, s[::-1].split('=')[1].split('+')))
 
-""" --------- Other --------- """
+""" --------- Converting values --------- """
 def f2c(ferinheight=0):
     return ferinheight * 9/5 + 32 # celsius
 
 def c2f(celsius=0):
     return (celsius - 32)* 5/9 # ferinheight
 
+	
+""" --------- String evaluation --------- """
 def is_anagram(str1, str2):
     return all(i in str2 for i in map(str, str1))
 
 def is_palindrome(string):
     return string == string[::-1]
 
+""" ------------- Testing ------------- """
 def inspect(object):
     return dir(object)
 
