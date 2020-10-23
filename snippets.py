@@ -229,3 +229,7 @@ def debug():
 def unitTests(level):
     ''' Automated Unit tests and script profiling '''
     return
+
+""" --------- Useful Python 3.8 'Features' --------- """
+def mirror(list):
+    return (s := sorted(list)) + s[-2::-1]
