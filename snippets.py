@@ -104,6 +104,10 @@ def pi(position, precision):
     
 def sqrt(n):
     return n**.5
+
+def multiple_of(number, value):
+    n = (number - 1) // value
+    return n * value * (n + 1) // 2
     
 """ ---- Econding Conversions ---- """
 def ascii2bin(string):
