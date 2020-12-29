@@ -133,7 +133,8 @@ def altBin2Dec(bin):
     return sum(int(str(bin)[i])*2**i for i in range(len(str(bin))))
 
 def int2bin(n):
-    return ''.join(str((n & (1 << i)) and 1) for i in range(len(str(n))*8,-1,-1)).lstrip('0')
+    # return ''.join(str((n & (1 << i)) and 1) for i in range(len(str(n))*8,-1,-1)).lstrip('0')
+    return int(f'{n:b}')
 
 def hex2bin(hex_string):
     return ''.join(bin(ord(x))[2:].rjust(8,'0')[::-1] for x in hex_string)
