@@ -245,8 +245,8 @@ def inspect(object):
     return dir(object)
 
 def debug():
-    import pdb
-    return pdb.set_trace()
+    from pdb import set_trace
+    return set_trace()
 
 def unitTests(level):
     ''' Automated Unit tests and script profiling '''
