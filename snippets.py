@@ -252,4 +252,6 @@ def unitTests(level):
 
 """ --------- Useful Python 3.8 'Features' --------- """
 def mirror(list):
+    # Assign and modify a variable in one line, usually this 
+    # would lead to Variable is not defined error.
     return (s := sorted(list)) + s[-2::-1]
