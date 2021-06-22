@@ -262,6 +262,11 @@ def mirrorAlgo(n):
     # Fun math pattern that results in repeating mirrored values
     return int("1"*n)**2
 
+""" -------------- Useful Tools --------------- """
+def wget(url):
+    # Downloads content from web, similiar to wget on Linux
+    from urllib import urlretrieve as retrieve
+    retrieve(url, filename=file)
 
 """ ---------- Time & Date Libraries ---------- """
-""" -------------- Useful Tools --------------- """
+
