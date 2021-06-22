@@ -266,7 +266,7 @@ def mirrorAlgo(n):
 def wget(url):
     # Downloads content from web, similiar to wget on Linux
     from urllib import urlretrieve as retrieve
-    retrieve(url, filename=file)
+    retrieve(url+file, filename=file)
 
 """ ---------- Time & Date Libraries ---------- """
 
