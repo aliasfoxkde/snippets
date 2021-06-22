@@ -145,9 +145,6 @@ def altBin2Dec(bin):
     function. Maybe not the most efficient but it adds a level of intuitiveness. '''
     return sum(int(str(bin)[i])*2**i for i in range(len(str(bin))))
 
-def int2bin(n):
-    return int(f'{n:b}')
-
 def hex2bin(hex_string):
     return ''.join(bin(ord(x))[2:].rjust(8,'0')[::-1] for x in hex_string)
 
@@ -252,7 +249,20 @@ def unitTests(level):
     ''' Automated Unit tests and script profiling '''
     return
 
+""" -------------- Useful Tools --------------- """
+def wget(url):
+    # Downloads content from web, similiar to wget on Linux
+    from urllib import urlretrieve as retrieve
+    retrieve(url+file, filename=file)
+
+""" ---------- Time & Date Libraries ---------- """
+from datetime import datetime
+def tZone(Zone, Time=datetime.now()):
+    return
+
 """ --------- Useful Python 3.8 'Features' --------- """
+'''
+# Commented out for Python 2x Compatibility
 def mirror(list):
     # Assign and modify a variable in one line, usually this 
     # would lead to Variable is not defined error.
@@ -262,11 +272,6 @@ def mirrorAlgo(n):
     # Fun math pattern that results in repeating mirrored values
     return int("1"*n)**2
 
-""" -------------- Useful Tools --------------- """
-def wget(url):
-    # Downloads content from web, similiar to wget on Linux
-    from urllib import urlretrieve as retrieve
-    retrieve(url+file, filename=file)
-
-""" ---------- Time & Date Libraries ---------- """
-
+def int2bin(n):
+    return int(f'{n:b}')
+    '''
