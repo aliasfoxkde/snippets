@@ -4,7 +4,7 @@
 
 metadata = dict(
     __author__ = "Aliasfox KDE",
-    __version__  = "0.0.2",
+    __version__  = "0.0.3",
     __license__ = "MIT License",
     __email__ = "aliasfox@cyopsys.com",
     __status__ = "Work in Progress",
@@ -146,7 +146,6 @@ def altBin2Dec(bin):
     return sum(int(str(bin)[i])*2**i for i in range(len(str(bin))))
 
 def int2bin(n):
-    # return ''.join(str((n & (1 << i)) and 1) for i in range(len(str(n))*8,-1,-1)).lstrip('0')
     return int(f'{n:b}')
 
 def hex2bin(hex_string):
@@ -200,14 +199,14 @@ def piedPiper(town):
     Example: ~O~O~O~OP~O~OO~ has 2 deaf rats '''
     return town.replace(' ', '')[::2].count('O')
     
-""" ------ Puzzle and Game Related --------- """        
-def piCross_solver(grid):
-    return
-    
+""" ------ Puzzle and Game Related --------- """   
 def baccarat_simulator():
     return
     
 def suduko_solver(grid):
+    return
+
+def nonogram_solver(grid):
     return
     
 """ -------- File tools -------- """
@@ -233,7 +232,6 @@ def f2c(ferinheight=0):
 
 def c2f(celsius=0):
     return (celsius - 32)* 5/9 # ferinheight
-
 	
 """ --------- String evaluation --------- """
 def is_anagram(str1, str2):
@@ -242,7 +240,7 @@ def is_anagram(str1, str2):
 def is_palindrome(string):
     return string == string[::-1]
 
-""" ------------- Testing ------------- """
+""" ------------- Debug & Testing ------------- """
 def inspect(object):
     return dir(object)
 
@@ -264,3 +262,6 @@ def mirrorAlgo(n):
     # Fun math pattern that results in repeating mirrored values
     return int("1"*n)**2
 
+
+""" ---------- Time & Date Libraries ---------- """
+""" -------------- Useful Tools --------------- """
