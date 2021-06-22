@@ -40,8 +40,14 @@ __all__ = metadata.keys()
      * http://norvig.com/sudoku.html
     
     Useful Notes:
-     * "from <module> import <function> as <abbreviation>
-     * "from <module> import <function1>, <function2>, ...     
+     * from <module> import <function> as <abbreviation>   (or)
+     * from <module> import <function1>, <function2>, ... 
+    
+    Import this module from file
+     * from path.to.file.snippets import * (or)
+     * from snippets import * 
+     
+     Notes: If in root directory, path is assumed (but this isn't always reliable).
 """
     
 def pause():
