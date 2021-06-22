@@ -107,8 +107,12 @@ def hamming(n):
 
 def longest_consec(string_array, n):
     return max([''.join(i) for i in zip(*[string_array[i:] for i in range(n)])]+[''], key=len)
-    
-def pi(position, precision):
+
+def pi(precision):
+    return sum(4/(i+c) if i % 2 else -4/(i+c) for c, i in enumerate(range(1, precision)))
+
+def piByPos(position, precision):
+    # Script to get digit of pi without re-calculate from the begining
     return
     
 def sqrt(n):
