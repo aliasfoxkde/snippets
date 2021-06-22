@@ -49,26 +49,34 @@ def pause():
 
 """ --- Useful list comprehension tricks --- """
 def advMap(func, *seqs):
+    # Unzip an array of arrays or tuple
     return [func(*args) for args in zip(*seqs)]
     
 def flatten(tuple):
+    # Flattens a list of lists to a single list.
+    # Example: [[1,2,3],[1,2,3],[1,2,3]] --> [1, 2, 3, 1, 2, 3, 1, 2, 3]
     return sum(tuple, [])
 
 def nthDimList(n, dims):
+    # Creates a multi-dimensional list or tuple
     lst = [0] * n
     return [[lst for j in range(n)] if dims > 1 else lst for i in range(dims-1)]
     
 def remDuplicates(array):
-    return sorted(set(array), key=l[::-1].index)[::-1]
+    # Removes Duplicates from a "flattened" list
+    return sorted(set(array), key=array[::-1].index)[::-1]
 
 def unzip(tuple):
+    # Unzips a simple list or tuple
     return zip(*tuple)
     
 """ ----- Useful Math Functions ----- """
 def cypher(cyper, key):
-    return ''.join(chr(i-int(b)+96)for i,b in zip(cyper,str(key)*29))
+    # Simple Shift-Cyper function
+    return ''.join(chr(i-int(b)+96) for i, b in zip(cyper, str(key)*29))
 
 def decypher(cyper, key):
+    # Simple Decypher for Cyper function (WIP)
     return
 
 def dirty_mod(n,mod):
@@ -77,6 +85,7 @@ def dirty_mod(n,mod):
     return (n/float(mod)-n//mod+.001)//(1/mod)
 
 def factorial(n):
+    # Down and Dirty factorial function
     return eval(str(range(1,n+1))[1:-1].replace(', ','*'))
 
 def fib(n):
