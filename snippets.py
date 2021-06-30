@@ -3,14 +3,14 @@
 # coding: utf-8
 
 metadata = dict(
-    __author__ = "Aliasfox KDE",
-    __version__  = "0.0.3",
-    __license__ = "MIT License",
-    __email__ = "aliasfox@cyopsys.com",
-    __status__ = "Work in Progress",
-    __url__ = "https://github.com/aliasfoxkde/snippets",
-    __summary__ = "Simple but helpful library of snippets for python.",
-    __keywords__ = "python, aliasfox, snippets"
+    __author__="Aliasfox KDE",
+    __version__="0.0.3",
+    __license__="MIT License",
+    __email__="aliasfox@cyopsys.com",
+    __status__="Work in Progress",
+    __url__="https://github.com/aliasfoxkde/snippets",
+    __summary__="Simple but helpful library of snippets for python.",
+    __keywords__="python, aliasfox, snippets"
 )
 globals().update(metadata)
 
@@ -40,234 +40,276 @@ __all__ = metadata.keys()
      * http://norvig.com/sudoku.html
     
     Useful Notes:
-     * from <module> import <function> as <abbreviation>   (or)
-     * from <module> import <function1>, <function2>, ... 
-    
-    Import this module from file
-     * from path.to.file.snippets import * (or)
-     * from snippets import * 
-     
-     Notes: If in root directory, path is assumed (but this isn't always reliable).
+     * "from <module> import <function> as <abbreviation>
+     * "from <module> import <function1>, <function2>, ...     
 """
-    
+
+
 def pause():
     return raw_input("Press Enter to continue...")
 
-""" --- Useful list comprehension tricks --- """
-def advMap(func, *seqs):
+
+# --- Useful list comprehension tricks ---
+def adv_map(func, *seqs):
     # Unzip an array of arrays or tuple
     return [func(*args) for args in zip(*seqs)]
-    
+
+
 def flatten(tuple):
     # Flattens a list of lists to a single list.
     # Example: [[1,2,3],[1,2,3],[1,2,3]] --> [1, 2, 3, 1, 2, 3, 1, 2, 3]
     return sum(tuple, [])
 
-def nthDimList(n, dims):
+
+def nth_dim_list(n, dims):
     # Creates a multi-dimensional list or tuple
     lst = [0] * n
-    return [[lst for j in range(n)] if dims > 1 else lst for i in range(dims-1)]
-    
-def remDuplicates(array):
+    return [[lst for j in range(n)] if dims > 1 else lst for i in range(dims - 1)]
+
+
+def rem_duplicates(array):
     # Removes Duplicates from a "flattened" list
     return sorted(set(array), key=array[::-1].index)[::-1]
+
 
 def unzip(tuple):
     # Unzips a simple list or tuple
     return zip(*tuple)
-    
-""" ----- Useful Math Functions ----- """
+
+
+# ----- Useful Math Functions -----
 def cypher(cyper, key):
     # Simple Shift-Cyper function
-    return ''.join(chr(i-int(b)+96) for i, b in zip(cyper, str(key)*29))
+    return ''.join(chr(i - int(b) + 96) for i, b in zip(cyper, str(key) * 29))
+
 
 def decypher(cyper, key):
     # Simple Decypher for Cyper function (WIP)
     return
 
-def dirty_mod(n,mod):
-    ''' "A Simple, Down and Dirty" Modulous Function that used the remainder
-    decimal remainder and multiplies it by the mod value '''
-    return (n/float(mod)-n//mod+.001)//(1/mod)
+
+def dirty_mod(n, mod):
+    """ "A Simple, Down and Dirty" Modulous Function that used the remainder
+        decimal remainder and multiplies it by the mod value """
+    return (n / float(mod) - n // mod + .001) // (1 / mod)
+
 
 def factorial(n):
     # Down and Dirty factorial function
-    return eval(str(range(1,n+1))[1:-1].replace(', ','*'))
+    return eval(str(range(1, n + 1))[1:-1].replace(', ', '*'))
+
 
 def fib(n):
     """ Calculate the nth digit of Fibonacci
         0 1 1 2 3 5 8 13 21 34 ... """
     a, b = 0, 1
-    for i in range(n-1):
+    for i in range(n - 1):
         a, b = b, a + b
     return a
 
-def getIntegral(c, e):
-    return "%sx^%s" % (c/(e+1) if c%(e+1)!=0 else c//(e+1), e+1)
-    
-def hamming(n):
-    ''' A *Hamming number* is a positive integer of the form 2i3j5k,
-        See: https://en.wikipedia.org/wiki/Regular_number '''
-    h = sorted(2**i*3**j*5**k for i in range(33) for j in range(21) for k in range(15))
-    return h[n-1]
 
-def longest_consec(string_array, n):
-    return max([''.join(i) for i in zip(*[string_array[i:] for i in range(n)])]+[''], key=len)
+def get_integral(c, e):
+    return "%sx^%s" % (c / (e + 1) if c % (e + 1) != 0 else c // (e + 1), e + 1)
+
+
+def hamming(n):
+    """ A *Hamming number* is a positive integer of the form 2i3j5k,
+        See: https://en.wikipedia.org/wiki/Regular_number """
+    h = sorted(2 ** i * 3 ** j * 5 ** k for i in range(33) for j in range(21) for k in range(15))
+    return h[n - 1]
+
+
+def longest_consecutive(string_array, n):
+    return max([''.join(i) for i in zip(*[string_array[i:] for i in range(n)])] + [''], key=len)
+
 
 def pi(precision):
-    return sum(4/(i+c) if i % 2 else -4/(i+c) for c, i in enumerate(range(1, precision)))
+    return sum(4 / (i + c) if i % 2 else -4 / (i + c) for c, i in enumerate(range(1, precision)))
 
-def piByPos(position, precision):
+
+def pi_by_ps(position, precision):
     # Script to get digit of pi without re-calculate from the begining
     return
-    
+
+
 def sqrt(n):
-    return n**.5
+    return n ** .5
+
 
 def multiple_of(number, value):
     n = (number - 1) // value
     return n * value * (n + 1) // 2
-    
-""" ---- Econding Conversions ---- """
+
+
+# ---- Econding Conversions ----
 def ascii2bin(string):
     return
 
+
 def ascii2hex(string):
     return
-    
-def bin2Ascii(bin):
+
+
+def bin2ascii(binary):
     from binascii import unhexlify
-    return str(unhexlify('%x' % int(str(bin), 2)))[2:-1]
+    return str(unhexlify('%x' % int(str(binary), 2)))[2:-1]
+
 
 def bin2hex(n):
     return hex(int(str(bin), 2))[2:]
 
-def bin2dec(bin):
-    return int(str(bin), 2)
-    
-def altBin2Dec(bin):
-    ''' Alternative binary calculator: I saw the formula one time for '111' as
-    (1 x 2^2) + (1 x 2^1) + (1 x 2^0) = 7 and thought it was awesome, so I made a python
-    function. Maybe not the most efficient but it adds a level of intuitiveness. '''
-    return sum(int(str(bin)[i])*2**i for i in range(len(str(bin))))
+
+def bin2dec(binary):
+    return int(str(binary), 2)
+
+
+def alt_bin2dec(binary):
+    """ Alternative binary calculator: I saw the formula one time for '111' as
+        (1 x 2^2) + (1 x 2^1) + (1 x 2^0) = 7 and thought it was awesome, so I made a python
+        function. Maybe not the most efficient but it adds a level of intuitiveness. """
+    return sum(int(str(binary)[i]) * 2 ** i for i in range(len(str(bin))))
+
 
 def hex2bin(hex_string):
-    return ''.join(bin(ord(x))[2:].rjust(8,'0')[::-1] for x in hex_string)
+    return ''.join(bin(ord(x))[2:].rjust(8, '0')[::-1] for x in hex_string)
 
-""" ----- "Fun" Functions I've written ---- """
+
+# ----- "Fun" Functions I've written ----
 def zodiac(month, day, year):
-    zodiac = [ "Capricorn", "Aquarius", "Pisces", "Aries", "Taurus", 
-               "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio",
-               "Sagittarius" ]
-    cutoff = [22, 20, 19, 21, 20, 21, 21, 23, 23, 23, 23, 22]    
-    return zodiac[month%12] if day < cutoff[month] else zodiac[month%11]
+    zodiac_mm = ["Capricorn", "Aquarius", "Pisces", "Aries", "Taurus",
+                 "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio",
+                 "Sagittarius"]
+    cutoff = [22, 20, 19, 21, 20, 21, 21, 23, 23, 23, 23, 22]
+    return zodiac_mm[month % 12] if day < cutoff[month] else zodiac_mm[month % 11]
+
 
 def chinese_zodiac(year):
-    zodiac = ["Monkey", "Rooster", "Dog", "Pig", "Rat", "Ox", "Tiger", 
-              "Rabbit", "Dragon", "Snake", "Horse", "Goat" ]
-    return zodiac[year%12]
+    zodiac_yy = ["Monkey", "Rooster", "Dog", "Pig", "Rat", "Ox", "Tiger",
+                 "Rabbit", "Dragon", "Snake", "Horse", "Goat"]
+    return zodiac_yy[year % 12]
+
 
 def increment_string(string):
     # See: https://www.codewars.com/kata/string-incrementer
-    for i in range(5,0,-1):
-        if len(string) > i-1 and string[-i].isdigit():
-            return string[:-i] + str(int(string[-i:])+1).zfill(i) 
-    return string+'1'
-    
-def numerology(month, day, year, name=''):     
-    nList = name.lower().split()
-    numbers = [sum(ord(j)-96 for j in nList[i])%9 for i in range(len(nList))]+[(month+day+year)%9]
+    for i in range(5, 0, -1):
+        if len(string) > i - 1 and string[-i].isdigit():
+            return string[:-i] + str(int(string[-i:]) + 1).zfill(i)
+    return string + '1'
+
+
+def numerology(month, day, year, name=''):
+    n_list = name.lower().split()
+    numbers = [sum(ord(j) - 96 for j in n_list[i]) % 9 for i in range(len(n_list))] + [(month + day + year) % 9]
     return numbers
-    
-def n_friday_the_13ths(y):    
+
+
+def n_friday_the_13ths(y):
     # My CodWars @ https://www.codewars.com/kata/56eb0be52caf798c630013c0
-    count = 0 # Clean & Pure Math Example      
-    for m in range(3,15):
-        if m == 13: y-=1            
-        if (y%100+(y%100//4)+(y//100)//4-2*(y//100)+26*(m+1)//10+12)%7==5:
+    count = 0  # Clean & Pure Math Example
+    for m in range(3, 15):
+        if m == 13: y -= 1
+        if (y % 100 + (y % 100 // 4) + (y // 100) // 4 - 2 * (y // 100) + 26 * (m + 1) // 10 + 12) % 7 == 5:
             count += 1
     return count
 
-def luhn(card):
-    ''' Credit Card Validator with Mod 10, or Luhn algorithm
-    refering to it's creator 'Hans Peter Luhn' '''
-    card=str(card).replace(' ','')
-    return (sum(map(int, str(card)[1::2])) + \
-            sum(sum(map(int, str(i*2))) for i in \
-            map(int, str(card)[0::2]))) % 10 == 0
 
-def piedPiper(town):
-    ''' How many rats are there?
-    See: https://www.codewars.com/kata/598106cb34e205e074000031 
-    Example: ~O~O~O~OP~O~OO~ has 2 deaf rats '''
+def luhn(card):
+    """ Credit Card Validator with Mod 10, or Luhn algorithm
+        referring to it's creator 'Hans Peter Luhn' """
+    card = str(card).replace(' ', '')
+    return (sum(map(int, card[1::2])) + sum(sum(map(int, str(i * 2))) for i in map(int, card[0::2]))) % 10 == 0
+
+
+def pied_piper(town):
+    """ How many rats are there?
+        See: https://www.codewars.com/kata/598106cb34e205e074000031
+        Example: ~O~O~O~OP~O~OO~ has 2 deaf rats """
     return town.replace(' ', '')[::2].count('O')
-    
-""" ------ Puzzle and Game Related --------- """   
+
+
+# ------ Puzzle and Game Related ---------
 def baccarat_simulator():
     return
-    
-def suduko_solver(grid):
+
+
+def sudoku_solver(grid):
     return
+
 
 def nonogram_solver(grid):
     return
-    
-""" -------- File tools -------- """
-def stripFile(filename, seperator='\n'):
+
+
+# -------- File tools --------
+def strip_file(filename, seperator='\n'):
     # "Parse a file into a list of strings, separated by seperator."
     return file(filename).read().strip().split(seperator)
-    
-""" ------ Sorting Algorithms --------- """
-def bubblesort(array):
-    for i in range(len(array)-1):
-        for j in range(len(array)-1-i):
-            if array[j] > array[j+1]:
-                array[j], array[j+1] = array[j+1], array[j]
-    return(array)
-    
+
+
+# ------ Sorting Algorithms ---------
+def bubble_sort(array):
+    for i in range(len(array) - 1):
+        for j in range(len(array) - 1 - i):
+            if array[j] > array[j + 1]:
+                array[j], array[j + 1] = array[j + 1], array[j]
+    return array
+
+
 def is_turing_equation(s):
     # See https://www.codewars.com/kata/simple-fun-number-384-is-turings-equation
     return int(s[::-1].split('=')[0]) == sum(map(int, s[::-1].split('=')[1].split('+')))
 
-""" --------- Converting values --------- """
+
+# --------- Converting values ---------
 def f2c(ferinheight=0):
-    return ferinheight * 9/5 + 32 # celsius
+    return ferinheight * 9 / 5 + 32  # celsius
+
 
 def c2f(celsius=0):
-    return (celsius - 32)* 5/9 # ferinheight
-	
-""" --------- String evaluation --------- """
+    return (celsius - 32) * 5 / 9  # ferinheight
+
+
+# --------- String evaluation ---------
 def is_anagram(str1, str2):
     return all(i in str2 for i in map(str, str1))
+
 
 def is_palindrome(string):
     return string == string[::-1]
 
-""" ------------- Debug & Testing ------------- """
+
+# ------------- Debug & Testing -------------
 def inspect(object):
     return dir(object)
+
 
 def debug():
     from pdb import set_trace
     return set_trace()
 
-def unitTests(level):
-    ''' Automated Unit tests and script profiling '''
+
+def unit_tests(level):
+    """ Automated Unit tests and script profiling """
     return
 
-""" -------------- Useful Tools --------------- """
+
+# -------------- Useful Tools ---------------
 def wget(url):
     # Downloads content from web, similiar to wget on Linux
     from urllib import urlretrieve as retrieve
-    retrieve(url+file, filename=file)
+    retrieve(url + file, filename=file)
 
-""" ---------- Time & Date Libraries ---------- """
+
+# ---------- Time & Date Libraries ----------
 from datetime import datetime
-def tZone(Zone, Time=datetime.now()):
+
+
+def t_zone(Zone, Time=datetime.now()):
     return
 
-""" --------- Useful Python 3.8 'Features' --------- """
-'''
+
+# --------- Useful Python 3.8 'Features' ---------
+"""
 # Commented out for Python 2x Compatibility
 def mirror(list):
     # Assign and modify a variable in one line, usually this 
@@ -280,4 +322,4 @@ def mirrorAlgo(n):
 
 def int2bin(n):
     return int(f'{n:b}')
-    '''
+    """
