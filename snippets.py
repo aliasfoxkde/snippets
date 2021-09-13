@@ -307,10 +307,12 @@ from datetime import datetime
 def t_zone(Zone, Time=datetime.now()):
     return
 
+
 # -------------- DSC Tools ------------------
 def string_counter(string):
     lst = sum(map(list, string), [])
     return [(x, lst.count(x)) for x in set(lst)]
+
 
 # --------- Useful Python 3.8 'Features' ---------
 """
