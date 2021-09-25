@@ -54,11 +54,17 @@ def adv_map(func, *seqs):
     # Unzip an array of arrays or tuple
     return [func(*args) for args in zip(*seqs)]
 
-
+    
 def flatten(tuple):
-    # Flattens a list of lists to a single list.
+    ''' Given an array of nested lists, produce a single flattened array. '''
     # Example: [[1,2,3],[1,2,3],[1,2,3]] --> [1, 2, 3, 1, 2, 3, 1, 2, 3]
-    return sum(tuple, [])
+
+    try:
+        for _ in range(len(tuple)):
+            array = sum(tuple, [])
+    except TypeError:
+        pass
+    return tuple
 
 
 def nth_dim_list(n, dims):
