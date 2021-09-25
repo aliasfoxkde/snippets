@@ -246,6 +246,10 @@ def pied_piper(town):
 
 
 # ------ Puzzle and Game Related ---------
+def minesweeper_solver():
+    return
+
+
 def baccarat_simulator():
     return
 
