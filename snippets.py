@@ -331,8 +331,9 @@ def t_zone(Zone, Time=datetime.now()):
 
 
 def time_globals():
-    global yy, mm, dd, hh, m, s, wDay, yDay, isDst
+    global yy, mm, dd, hh, m, s, wDay, yDay, isDst, start
     yy, mm, dd, hh, m, s, wDay, yDay, isDst = datetime.today().timetuple()
+    start = datetime.now()
     
 
 # -------------- DSC Tools ------------------
@@ -349,9 +350,11 @@ def mirror(list):
     # would lead to Variable is not defined error.
     return (s := sorted(list)) + s[-2::-1]
 
+
 def mirrorAlgo(n):
     # Fun math pattern that results in repeating mirrored values
     return int("1"*n)**2
+
 
 def int2bin(n):
     return int(f'{n:b}')
