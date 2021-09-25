@@ -330,6 +330,11 @@ def t_zone(Zone, Time=datetime.now()):
     return
 
 
+def time_globals():
+    global yy, mm, dd, hh, m, s, wDay, yDay, isDst
+    yy, mm, dd, hh, m, s, wDay, yDay, isDst = datetime.today().timetuple()
+    
+
 # -------------- DSC Tools ------------------
 def string_counter(string):
     lst = sum(map(list, string), [])
