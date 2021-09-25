@@ -38,6 +38,10 @@ __all__ = metadata.keys()
      * https://pymotw.com/2/profile/
      * https://passwordsgenerator.net
      * http://norvig.com/sudoku.html
+     * https://github.com/vinta/awesome-python
+     
+    Useful Guides:
+     * https://linuxhint.com/python_scripts_beginners_guide/     
     
     Useful Notes:
      * "from <module> import <function> as <abbreviation>
