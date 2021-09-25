@@ -62,6 +62,7 @@ def adv_map(func, *seqs):
 def flatten(tuple):
     ''' Given an array of nested lists, produce a single flattened array. '''
     # Example: [[1,2,3],[1,2,3],[1,2,3]] --> [1, 2, 3, 1, 2, 3, 1, 2, 3]
+    # https://github.com/keon/algorithms/blob/master/algorithms/arrays/flatten.py
 
     try:
         for _ in range(len(tuple)):
@@ -107,6 +108,13 @@ def dirty_mod(n, mod):
 def factorial(n):
     # Down and Dirty factorial function
     return eval(str(range(1, n + 1))[1:-1].replace(', ', '*'))
+
+
+def plus_one(array):
+    ''' Adds +1 to the tail of a given array, alternative algorithm '''
+    # https://github.com/keon/algorithms/blob/master/algorithms/arrays/plus_one.py
+    array[-1] = array[-1]+1
+    return array
 
 
 def fib(n):
