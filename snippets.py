@@ -73,7 +73,7 @@ def nth_dim_list(n, dims):
     return [[lst for j in range(n)] if dims > 1 else lst for i in range(dims - 1)]
 
 
-def rem_duplicates(array):
+def deduplicate(array):
     # Removes Duplicates from a "flattened" list
     return sorted(set(array), key=array[::-1].index)[::-1]
 
